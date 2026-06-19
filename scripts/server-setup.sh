@@ -16,8 +16,8 @@ fi
 echo "==> System update"
 sudo dnf update -y
 
-echo "==> Installing Node 20, git, docker"
-curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+echo "==> Installing Node 22, git, docker"
+curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
 sudo dnf install -y nodejs git docker
 
 echo "==> Enabling docker"

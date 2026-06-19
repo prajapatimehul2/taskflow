@@ -1,0 +1,21 @@
+# systemd alternative to pm2 (use one or the other, not both).
+# Install:
+#   sudo cp deploy/taskflow.service /etc/systemd/system/taskflow.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now taskflow
+# Adjust User / WorkingDirectory if you did not clone to /home/ec2-user/taskflow.
+[Unit]
+Description=TaskFlow (Next.js)
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/taskflow
+EnvironmentFile=/home/ec2-user/taskflow/.env
+ExecStart=/usr/bin/node node_modules/next/dist/bin/next start -H 127.0.0.1 -p 3000
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

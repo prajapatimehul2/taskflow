@@ -1,0 +1,7 @@
+# TaskFlow reverse proxy with automatic HTTPS.
+# 1. Replace taskflow.example.com with your real domain (A record -> Elastic IP).
+# 2. Install:  sudo cp deploy/Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy
+taskflow.example.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:3000
+}

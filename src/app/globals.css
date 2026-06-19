@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --surface: #fbfbfa;
+  --foreground: #37352f;
+  --muted-foreground: #787774;
+  --border: rgba(55, 53, 47, 0.09);
+  --input: rgba(55, 53, 47, 0.16);
+  --hover: rgba(55, 53, 47, 0.06);
+  --accent: #2383e2;
+  --accent-foreground: #ffffff;
+  --success: #448361;
+  --danger: #d44c47;
+  --popover: #ffffff;
+  --ring: #2383e2;
+
+  --radius: 6px;
+}
+
+.dark {
+  --background: #191919;
+  --surface: #202020;
+  --foreground: #e9e9e7;
+  --muted-foreground: #9b9a97;
+  --border: rgba(255, 255, 255, 0.094);
+  --input: rgba(255, 255, 255, 0.14);
+  --hover: rgba(255, 255, 255, 0.055);
+  --accent: #2383e2;
+  --accent-foreground: #ffffff;
+  --success: #4f9d75;
+  --danger: #e0625d;
+  --popover: #202020;
+  --ring: #2383e2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--hover);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-hover: var(--hover);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--foreground);
+  --color-ring: var(--ring);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(35, 131, 226, 0.2);
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--ring);
+  border-radius: var(--radius-sm);
+}
